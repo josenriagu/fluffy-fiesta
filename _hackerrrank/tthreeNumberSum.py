@@ -9,40 +9,50 @@
 
 def threeNumberSum(arr, target):
     # Write your code here
-
-    # sort list
-    arr.sort()
-    print(arr)
-    # initialize variable to hold triplets
     triplets = []
-    # loop
     for i in range(len(arr)):
-        # condition to prevent index error
-        if i > len(arr) - 2:
-            continue
-        # concatenate matched elements, reverse and loop
-        for el in list(reversed(arr[i+2:]+arr[:i])):
-            # if equal to target
-            if arr[i] + arr[i+1] + el == target:
-                # append to triplets list
-                triplets.append([arr[i], arr[i+1], el])
-        i += 1
-    # reverse triplets
-    triplets = list(reversed(triplets))
+        x = arr[i]
+        rem = arr[i + 1:]
+        for j in range(len(rem)):
+            y = rem[j]
+            z = target - (x + y)
+            if z in arr:
+                if (z == x or z == y) and arr.count(z) < 2:
+                    continue
+                else:
+                    triplet = sorted([x, y, z])
+                    if triplet not in triplets:
+                        triplets.append(triplet)
+    return sorted(triplets)
 
-    # sort lists
-    for ar in triplets:
-        ar.sort()
-
-    # remove identical lists
-    for i, ar in enumerate(triplets):
-        if i < len(triplets) - 1:
-            if ar == triplets[i+1]:
-                triplets.pop(i)
-
-    # return triplets
-    return triplets
+# optimized using set
+def _threeNumberSum(arr, target):
+    size = len(arr)
+    output = []
+    for i in range(size - 1):
+        diff = set()
+        x = arr[i]
+        y_z = target - x
+        for j in range(i+1, size):
+            y = arr[j]
+            z = y_z - y
+            if z in diff:
+                matched_pair = sorted([x, y, z])
+                output.append(matched_pair)
+            else:
+                diff.add(y)
+    return sorted(output)
 
 
 print(threeNumberSum([12, 3, 1, 2, -6, 5, -8, 6], 0))
-# 3/5 test cases
+print(_threeNumberSum([1, 2, 3, 4, 5, 6, 7, 8, 9, 15], 30))
+
+# large input
+values = []
+with open("maxMinLarge.in") as f:
+    line = f.readlines()
+    for i in range(1000):
+        line[i] = int(line[i].rstrip())
+        values.append(line[i])
+
+print(_threeNumberSum(values, 161631314))
