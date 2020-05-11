@@ -1,0 +1,108 @@
+:root {
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 1.6rem;
+  background-color: #808080;
+}
+h1 {
+  font-size: 2.8rem;
+  font-weight: bolder;
+  font-style: italic;
+  margin-bottom: 1.8rem;
+}
+h2 {
+  font-size: 1.7rem;
+  font-weight: bolder;
+  text-decoration: underline;
+}
+.container {
+  width: 98rem;
+  margin: 1.25rem auto;
+  padding: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: white;
+  border: .1rem solid black;
+}
+.menu {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.menu > p {
+  width: 20%;
+  font-size: 1.7rem;
+  font-weight: bolder;
+  padding: 0.8rem;
+}
+.menu > ul {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+.menu > ul > li {
+  width: 24.7%;
+  padding: 0.8rem;
+  text-align: center;
+  background-color: #808080;
+  color: white;
+}
+.nav {
+  width: 19.7%;
+  background-color: yellow;
+  height: 78vh;
+  border: 0.08rem solid #808080;
+}
+.nav > ul > li {
+  margin: 1.5rem 0 0 3rem;
+  list-style-type: square;
+}
+.content {
+  width: 80%;
+  padding-left: 1.25rem;
+}
+.content > p {
+  margin-bottom: 1.8rem;
+}
+form {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  background-color: #808080;
+}
+form > span {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  padding-left: 2rem;
+}
+form > span > input,
+form > span > textarea {
+  width: 65%;
+  padding: 0.5rem;
+}
+form > span > textarea {
+  height: 30vh;
+  /* optional: use if you need to add more highlight to the default outline */
+  box-shadow: 0px 0px 8px #698BD7;
+}
+form > input {
+  background-color: black;
+  color: white;
+  border: none;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+.footer {
+  margin: 2rem auto 3rem;
+  background-color: black;
+  color: white;
+  text-align: center !important;
+}
